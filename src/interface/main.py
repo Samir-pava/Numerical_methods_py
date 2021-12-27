@@ -5,15 +5,15 @@ application.geometry("500x600")
 # TITULO DENTRO DE LA INTERFAZ
 myLabel1 = Label(application, text=" Welcome to numerical methods solutions aplication").pack(pady=20)
 # ENTRADA EN EL CAJA DE TEXTO
-e = Entry(application, width=50, bg="aliceblue", borderwidth=3)
-e.insert(0, 'Enter the funtion what you want to calculate')
-e.pack()
+entry = Entry(application, width=50, bg="aliceblue", borderwidth=3)
+entry.insert(0, 'Enter the funtion what you want to calculate')
+entry.pack()
 
 #ACCIONES DE LOS BOTONES
 
 def click_button():
-    e.delete(0, END)
-    e.insert(0, number)
+    entry.delete(0, END)
+    entry.insert(0, number)
     myCLick = Label(application, text='Has dado click!').pack()
 
 def clicktwo_button():
