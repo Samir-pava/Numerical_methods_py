@@ -1,10 +1,12 @@
 from NumericalMethods import NumericalMethods
 
-function = NumericalMethods(lambda x : 2*x-2, 3)
+f = lambda x : 5*x**(5)-2
+function = NumericalMethods(f, 4)
 
 bisection = function.bisection(-30, 34)
 
 bisection.print()
+print(f(2))
 # b_1 = bisection.evaluate_once()
 # print(b_1)
 # b_2 = b_1.evaluate_once()
