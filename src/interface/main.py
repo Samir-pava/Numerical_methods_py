@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 from math import *
+import os
 
 application = tk.Tk()
 application.title("NUMERICAL METHODS") #MAIN WINDOW TITLE, TITULO DE LA VENTANA PRINCIPAL
@@ -51,9 +52,18 @@ def cover():
         set_b.config(image=settings,font=(0,15))
         ring_b.config(image=ring,font=(0,15))
 
-home = ImageTk.PhotoImage(Image.open('/home/samir/Documentos/Numerical_methods_py/src/interface/function.png').resize((40,40),Image.ANTIALIAS))
-settings = ImageTk.PhotoImage(Image.open('/home/samir/Documentos/Numerical_methods_py/src/interface/settings.png').resize((40,40),Image.ANTIALIAS))
-ring = ImageTk.PhotoImage(Image.open('/home/samir/Documentos/Numerical_methods_py/src/interface/guide.png').resize((40,40),Image.ANTIALIAS))
+
+"""
+get_file_path: receive a string with the file name and return the obsolute path of the file name given
+"""
+def get_file_path(file_name):
+    assets_dir = os.path.dirname(__file__)
+    return os.path.join(assets_dir,file_name)
+
+
+home = ImageTk.PhotoImage(Image.open(get_file_path('function.png')).resize((40,40),Image.ANTIALIAS))
+settings = ImageTk.PhotoImage(Image.open(get_file_path('settings.png')).resize((40,40),Image.ANTIALIAS))
+ring = ImageTk.PhotoImage(Image.open(get_file_path('guide.png')).resize((40,40),Image.ANTIALIAS))
 
 
 application.update() # For the width to get update 
@@ -76,7 +86,7 @@ frame_one.bind('<Leave>', lambda e: contract())
 frame_one.pack_propagate(0)
 
 # TITULO DENTRO DE LA INTERFAZ
-title_image = ImageTk.PhotoImage(Image.open('/home/samir/Documentos/Numerical_methods_py/src/interface/title.png').resize((450,100),Image.ANTIALIAS))
+title_image = ImageTk.PhotoImage(Image.open(get_file_path('title.png')).resize((450,100),Image.ANTIALIAS))
 title_label = Label(application,image=title_image, bg='White')
 title_label.pack(side='top', pady=20)
 
